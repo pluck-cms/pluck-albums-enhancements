@@ -118,7 +118,10 @@ function albums_page_admin_editalbum() {
 		//If file is jpeg, pjpeg, png or gif: Accept.
 		if (in_array($_FILES['imagefile']['type'], array('image/jpeg', 'image/pjpeg', 'image/png', 'image/gif'))) {
 			//Define some variables
-			list($image_filename, $ext) = explode('.', $_FILES['imagefile']['name']);
+			$extpos = strrpos($_FILES['imagefile']['name'], '.');
+			if ($extpos === false) $extpos = strlen($_FILES['imagefile']['name']);
+			$image_filename = substr($_FILES['imagefile']['name'], 0, $extpos);
+			$ext = substr($_FILES['imagefile']['name'], $extpos + 1);
 			$image_filename = seo_url($image_filename);
 			$fullimage = ALBUMS_DIR.'/'.$var1.'/'.$image_filename.'.'.strtolower($ext);
 			$thumbimage = ALBUMS_DIR.'/'.$var1.'/thumb/'.$image_filename.'.'.strtolower($ext);
@@ -127,8 +130,10 @@ function albums_page_admin_editalbum() {
 			$images = read_dir_contents(ALBUMS_DIR.'/'.$var1.'/thumb', 'files');
 			if ($images) {
 				foreach ($images as $image) {
-					$parts = explode('.', $image);
-					if ($parts[0] == $image_filename) {
+					$extpos = strrpos($image, '.');
+					if ($extpos === false) $extpos = strlen($image);
+					$namepart = substr($image, 0, $extpos);
+					if ($namepart == $image_filename) {
 						$name_exist = true;
 						break;
 					}
@@ -201,14 +206,15 @@ function albums_page_admin_editalbum() {
 				//Sanitize data.
 				$cont1 = sanitize($cont1);
 				$cont2 = sanitize($cont2);
-				$cont2 = str_replace ("\n",'<br />', $cont2);
+				$cont2 = nl2br($cont2);
 
 				//Compose the data.
 				$data['name'] = $cont1;
 				$data['info'] = $cont2;
 
 				//Then save the image information.
-				save_file(ALBUMS_DIR.'/'.$var1.'/'.$number.'.'.$image_filename.'.'.$ext.'.php', $data);
+				save_file(ALBUMS_DIR.'/'.$var1.'/'.$number.'.'.$image_filename.'.'.strtolower($ext).'.php', $data);
+
 			}
 		}
 
