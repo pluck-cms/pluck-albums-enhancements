@@ -84,7 +84,7 @@ function albums_page_admin_albums() {
 			elseif (!empty($cont1)) {
 				//Sanitize album name and list it in array for saving.
 				$album_name = sanitize($cont1);
-				$album_desc = sanitize(nl2br(trim($cont2)));
+				$album_desc = sanitizePageContent(nl2br(trim($cont2)));
 				$data['album_name'] = $album_name;
 				$data['album_desc'] = $album_desc;
 				
@@ -205,7 +205,7 @@ function albums_page_admin_editalbum() {
 
 				//Sanitize data.
 				$cont1 = sanitize($cont1);
-				$cont2 = sanitize($cont2);
+				$cont2 = sanitizePageContent($cont2);
 				$cont2 = nl2br($cont2);
 
 				//Compose the data.
@@ -308,7 +308,7 @@ function albums_page_admin_editimage() {
 		if (isset($_POST['save'])) {
 			//Sanitize data.
 			$cont1 = sanitize($cont1);
-			$cont2 = sanitize($cont2);
+			$cont2 = sanitizePageContent($cont2);
 			$cont2 = nl2br($cont2);
 
 			//Then save the image information.
@@ -464,7 +464,7 @@ function albums_page_admin_modifyalbum() {
 			elseif (!empty($cont1) && seo_url($cont1) != $var1) {
 				//Sanitize album name and list it in array for saving.
 				$album_name = sanitize($cont1);
-				$album_desc = sanitize(nl2br(trim($cont2)));
+				$album_desc = sanitizePageContent(nl2br(trim($cont2)));
 				$data['album_name'] = $album_name;
 				$data['album_desc'] = $album_desc;
 				
@@ -483,7 +483,7 @@ function albums_page_admin_modifyalbum() {
 				redirect('?module=albums', 0);
 			}
 			elseif (!empty($cont1) && seo_url($cont1) == $var1) {
-				$album_desc = sanitize(nl2br(trim($cont2)));
+				$album_desc = sanitizePageContent(nl2br(trim($cont2)));
 				$data['album_name'] = $album_name;
 				$data['album_desc'] = $album_desc;
 				
