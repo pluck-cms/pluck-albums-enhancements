@@ -94,11 +94,11 @@ function albums_theme_main($area, $category) {
 }
 
 function albums_theme_meta() {
-	//Only insert LyteBox when we're viewing an album
+	//Only insert lightbox when we're viewing an album
 	if ((defined('CURRENT_MODULE_DIR') && CURRENT_MODULE_DIR == 'albums') || (defined('CURRENT_PAGE_SEONAME') && module_is_included_in_page('albums', CURRENT_PAGE_SEONAME))) {
 	?>
-		<script type="text/javascript" src="<?php echo SITE_URL; ?>/data/modules/albums/lib/lytebox/lytebox.js"></script>
-		<link rel="stylesheet" href="<?php echo SITE_URL; ?>/data/modules/albums/lib/lytebox/lytebox.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="<?php echo SITE_URL; ?>/data/modules/albums/lib/lightbox/lightbox.js"></script>
+		<link rel="stylesheet" href="<?php echo SITE_URL; ?>/data/modules/albums/lib/lightbox/lightbox.css" type="text/css" media="screen" />
 	<?php
 	}
 }

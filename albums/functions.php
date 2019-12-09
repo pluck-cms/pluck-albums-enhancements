@@ -195,7 +195,7 @@ function albums_site_show_images($album) {
 					<table>
 						<tr>
 							<td>
-								<a href="<?php echo SITE_URL; ?>/data/modules/albums/albums_getimage.php?image=<?php echo $album; ?>/<?php echo $image['filename_image']; ?>" rel="lytebox[album]" title="<?php echo $image['title'] . ' - ' . trim(strip_tags(htmlspecialchars_decode($image['info']))); ?>">
+								<a href="<?php echo SITE_URL; ?>/data/modules/albums/albums_getimage.php?image=<?php echo $album; ?>/<?php echo $image['filename_image']; ?>" data-lightbox="<?php echo $album; ?>" data-title="<?php echo $image['title']. ' - ' . trim(strip_tags(htmlspecialchars_decode($image['info']))); ?>">
 									<img src="<?php echo SITE_URL; ?>/data/modules/albums/albums_getimage.php?image=<?php echo $album; ?>/thumb/<?php echo $image['filename_image']; ?>" alt="<?php echo $image['title'] . ' - ' . trim(strip_tags(htmlspecialchars_decode($image['info']))); ?>" title="<?php echo $image['title'] . ' - ' . trim(strip_tags(htmlspecialchars_decode($image['info']))); ?>" />
 								</a>
 							</td>
