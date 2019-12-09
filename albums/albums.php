@@ -22,7 +22,7 @@ function albums_info() {
 	return array(
 		'name'          => $lang['albums']['title'].' enhancements',
 		'intro'         => $lang['albums']['descr'],
-		'version'       => '0.2enhancements',
+		'version'       => '0.2 enhancements',
 		'author'        => $lang['general']['pluck_dev_team'],
 		'website'       => 'http://www.pluck-cms.org',
 		'icon'          => 'images/albums.png',
@@ -40,7 +40,7 @@ function albums_settings_default() {
 
 function albums_admin_module_settings_beforepost() {
 	global $lang;
-	echo '<span class="kop2">'.$lang['albums']['title'].'</span>
+	echo '<span class="kop2">'.$lang['albums']['title'].' enhancements</span>
 		<table>
 			<tr>
 				<td><input name="image_width" id="image_width" type="text" size="2" value="'.module_get_setting('albums','resize_image_width').'" /></td>

@@ -23,7 +23,7 @@ function albums_pages_admin() {
 
 	$module_page_admin[] = array(
 		'func'  => 'albums',
-		'title' => $lang['albums']['title']
+		'title' => $lang['albums']['title'] .' enhancements'
 	);
 	$module_page_admin[] = array(
 		'func'  => 'editalbum',
@@ -205,7 +205,7 @@ function albums_page_admin_editalbum() {
 
 				//Sanitize data.
 				$cont1 = sanitize($cont1);
-				$cont2 = sanitizePageContent($cont2);
+				$cont2 = sanitizePageContent(trim($cont2));
 				$cont2 = nl2br($cont2);
 
 				//Compose the data.

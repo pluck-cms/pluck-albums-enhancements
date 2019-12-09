@@ -144,6 +144,7 @@ function albums_admin_show_images($album) {
 						</a>
 					</span>
 					<span class="title-page">
+		
 						<span class="kop3"><?php echo $image['title']; ?></span>
 						<br />
 						<span class="small"><?php echo htmlspecialchars_decode($image['info']); ?></span>
@@ -194,8 +195,8 @@ function albums_site_show_images($album) {
 					<table>
 						<tr>
 							<td>
-								<a href="<?php echo SITE_URL; ?>/data/modules/albums/albums_getimage.php?image=<?php echo $album; ?>/<?php echo $image['filename_image']; ?>" rel="lytebox[album]" title="<?php echo $image['title']; ?>">
-									<img src="<?php echo SITE_URL; ?>/data/modules/albums/albums_getimage.php?image=<?php echo $album; ?>/thumb/<?php echo $image['filename_image']; ?>" alt="<?php echo $image['title']; ?>" title="<?php echo $image['title']; ?>" />
+								<a href="<?php echo SITE_URL; ?>/data/modules/albums/albums_getimage.php?image=<?php echo $album; ?>/<?php echo $image['filename_image']; ?>" rel="lytebox[album]" title="<?php echo $image['title'] . ' - ' . trim(strip_tags(htmlspecialchars_decode($image['info']))); ?>">
+									<img src="<?php echo SITE_URL; ?>/data/modules/albums/albums_getimage.php?image=<?php echo $album; ?>/thumb/<?php echo $image['filename_image']; ?>" alt="<?php echo $image['title'] . ' - ' . trim(strip_tags(htmlspecialchars_decode($image['info']))); ?>" title="<?php echo $image['title'] . ' - ' . trim(strip_tags(htmlspecialchars_decode($image['info']))); ?>" />
 								</a>
 							</td>
 							<td>
