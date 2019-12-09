@@ -67,7 +67,7 @@ function albums_theme_main($area, $category) {
 							<tr>
 								<td>
 									<a href="<?php echo SITE_URL.'/'.PAGE_URL_PREFIX.CURRENT_PAGE_SEONAME.ALBUM_URL_PREFIX.$album['seoname']; ?>" title="album <?php echo $album['title']; ?>">
-										<img alt="<?php echo $album['title']; ?>" title="<?php echo $album['title']; ?>" src="<?php echo SITE_URL; ?>/data/modules/albums/albums_getimage.php?image=<?php echo $album['seoname']; ?>/thumb/<?php echo album_random_image($album['seoname']); ?>" />
+										<img alt="<?php echo $album['title'] . ' - ' . trim(strip_tags(htmlspecialchars_decode($album_desc))); ?>" title="<?php echo $album['title'] . ' - ' . trim(strip_tags(htmlspecialchars_decode($album_desc))); ?>" src="<?php echo SITE_URL; ?>/data/modules/albums/albums_getimage.php?image=<?php echo $album['seoname']; ?>/thumb/<?php echo album_random_image($album['seoname']); ?>" />
 									</a>
 
 								</td>
